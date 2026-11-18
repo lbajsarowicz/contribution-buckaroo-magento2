@@ -38,6 +38,7 @@ class CapayableIn3HandlerTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param float $unitPrice
      * @param float $expected
+     * @dataProvider unitPriceProvider
      */
     #[DataProvider('unitPriceProvider')]
     public function testTheUnitPriceIsNotLoweredByFloatingPointError(float $unitPrice, float $expected): void

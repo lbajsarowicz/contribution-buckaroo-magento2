@@ -54,6 +54,7 @@ class CreditcardsTest extends BaseTest
     /**
      * @param $expected
      *
+     * @dataProvider getConfigProvider
      */
     #[DataProvider('getConfigProvider')]
     public function testGetConfig($expected)
@@ -160,6 +161,7 @@ class CreditcardsTest extends BaseTest
      * @param $value
      * @param $expected
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($value, $expected)

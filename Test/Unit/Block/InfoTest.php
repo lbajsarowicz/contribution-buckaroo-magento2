@@ -70,6 +70,7 @@ class InfoTest extends TestCase
     /**
      *
      * @param mixed $storedValue
+     * @dataProvider missingTransactionKeyProvider
      */
     #[DataProvider('missingTransactionKeyProvider')]
     public function testGetPaymentTransactionReferenceReturnsNullWhenKeyIsMissing($storedValue): void

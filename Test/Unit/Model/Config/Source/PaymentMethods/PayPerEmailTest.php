@@ -78,6 +78,7 @@ class PayPerEmailTest extends BaseTest
     /**
      * @param $paymentOption
      *
+     * @dataProvider toOptionArrayProvider
      */
     #[DataProvider('toOptionArrayProvider')]
     public function testToOptionArray($paymentOption)

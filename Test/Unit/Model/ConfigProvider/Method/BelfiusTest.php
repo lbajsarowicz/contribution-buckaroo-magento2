@@ -60,6 +60,7 @@ class BelfiusTest extends BaseTest
      *
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @dataProvider getConfigProvider
      */
     #[DataProvider('getConfigProvider')]
     public function testGetConfig($active, $expected)
@@ -143,6 +144,7 @@ class BelfiusTest extends BaseTest
      *
      * @covers ::getPaymentFee
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($value, $expected)

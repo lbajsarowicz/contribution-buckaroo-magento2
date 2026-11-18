@@ -27,13 +27,13 @@ use Buckaroo\Magento2\Gateway\Data\Order\OrderAdapter;
 use Buckaroo\Magento2\Gateway\Request\Recipient\KlarnaDataBuilder;
 use Buckaroo\Magento2\Logging\BuckarooLoggerInterface;
 use Buckaroo\Magento2\Service\Formatter\BirthDateFormatter;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Model\InfoInterface;
 use Magento\Sales\Model\Order\Address;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class KlarnaDataBuilderTest extends AbstractDataBuilderTest
+class KlarnaDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var KlarnaDataBuilder
@@ -71,6 +71,7 @@ class KlarnaDataBuilderTest extends AbstractDataBuilderTest
      *
      *
      * @param string|null $customerGender
+     * @dataProvider customerGenderProvider
      */
     #[DataProvider('customerGenderProvider')]
     public function testGenderIsAlwaysUnknown(?string $customerGender): void

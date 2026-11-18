@@ -137,6 +137,7 @@ class CheckoutSupportTest extends BaseTest
      * @param array<string, mixed> $config
      * @param string               $stepClass
      * @param string|null          $expected
+     * @dataProvider storeProvider
      */
     #[DataProvider('storeProvider')]
     public function testGetCheckoutWithoutIdinStep(

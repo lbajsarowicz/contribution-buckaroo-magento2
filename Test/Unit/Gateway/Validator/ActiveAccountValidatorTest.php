@@ -44,6 +44,7 @@ class ActiveAccountValidatorTest extends TestCase
      *
      * @param mixed $accountActive
      * @param bool  $isValid
+     * @dataProvider accountActiveProvider
      */
     #[DataProvider('accountActiveProvider')]
     public function testValidate($accountActive, bool $isValid)

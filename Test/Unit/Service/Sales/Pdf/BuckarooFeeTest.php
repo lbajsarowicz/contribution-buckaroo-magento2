@@ -90,6 +90,7 @@ class BuckarooFeeTest extends BaseTest
      * @param $displayType
      * @param $expected
      *
+     * @dataProvider getTotalsForDisplayProvider
      */
     #[DataProvider('getTotalsForDisplayProvider')]
     public function testGetTotalsForDisplay($amountExclTax, $amountInclTax, $label, $displayType, $expected)

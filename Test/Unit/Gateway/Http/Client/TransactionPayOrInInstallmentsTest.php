@@ -101,6 +101,9 @@ class TransactionPayOrInInstallmentsTest extends BaseTest
         ];
     }
 
+    /**
+     * @dataProvider serviceActionProvider
+     */
     #[DataProvider('serviceActionProvider')]
     public function testActionIsSelectedFromServiceActionFromMagento(
         string $serviceActionFromMagento,

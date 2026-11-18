@@ -28,7 +28,7 @@ use Buckaroo\Magento2\Gateway\Response\ConsumerMessageHandler;
 use Magento\Framework\Message\ManagerInterface as MessageManager;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class ConsumerMessageHandlerTest extends AbstractResponseHandlerTest
+class ConsumerMessageHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var MessageManager|MockObject
@@ -53,6 +53,7 @@ class ConsumerMessageHandlerTest extends AbstractResponseHandlerTest
      *
      * @param array $consumerMessage
      * @param int   $expectedMessageCalls
+     * @dataProvider messageDataProvider
      */
     #[DataProvider('messageDataProvider')]
     public function testHandle(array $consumerMessage, int $expectedMessageCalls): void

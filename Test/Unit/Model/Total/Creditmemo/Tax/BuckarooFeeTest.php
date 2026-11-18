@@ -70,6 +70,7 @@ class BuckarooFeeTest extends BaseTest
      * @param $expectedGrandTotal
      * @param $expectedTotalRefunded
      *
+     * @dataProvider collectProvider
      */
     #[DataProvider('collectProvider')]
     public function testCollect($tax, $taxinvoiced, $taxrefunded, $expectedGrandTotal, $expectedTotalRefunded)
@@ -81,16 +82,16 @@ class BuckarooFeeTest extends BaseTest
         $orderMock->setBuckarooFeeTaxAmountRefunded($taxrefunded);
 
         // Set initial values that the collect method expects to read
-        $orderMock->expects($this->any())->method('getBuckarooFeeBaseTaxAmountInvoiced')->willReturn($taxinvoiced);
+        $orderMock->method('getBuckarooFeeBaseTaxAmountInvoiced')->willReturn($taxinvoiced);
 
         // The getBuckarooFeeBaseTaxAmountRefunded will be called to read initial value and potentially after setting new value
         $initialRefunded = $taxrefunded;
-        $orderMock->expects($this->any())->method('getBuckarooFeeBaseTaxAmountRefunded')->willReturnCallback(function () use (&$initialRefunded) {
+        $orderMock->method('getBuckarooFeeBaseTaxAmountRefunded')->willReturnCallback(function () use (&$initialRefunded) {
             return $initialRefunded;
         });
 
         // Mock the setter to track changes
-        $orderMock->expects($this->any())->method('setBuckarooFeeBaseTaxAmountRefunded')->willReturnCallback(function ($value) use (&$initialRefunded) {
+        $orderMock->method('setBuckarooFeeBaseTaxAmountRefunded')->willReturnCallback(function ($value) use (&$initialRefunded) {
             $initialRefunded = $value;
         });
 
@@ -100,8 +101,8 @@ class BuckarooFeeTest extends BaseTest
         $invoiceMock->setBuckarooFeeTaxAmount($tax);
 
         // Set up invoice mock methods
-        $invoiceMock->expects($this->any())->method('getBuckarooFeeBaseTaxAmount')->willReturn($tax);
-        $invoiceMock->expects($this->any())->method('getBuckarooFeeTaxAmount')->willReturn($tax);
+        $invoiceMock->method('getBuckarooFeeBaseTaxAmount')->willReturn($tax);
+        $invoiceMock->method('getBuckarooFeeTaxAmount')->willReturn($tax);
 
         $creditmemoMock = $this->getFakeMock(Creditmemo::class)->onlyMethods(['getOrder', 'getInvoice'])->getMock();
         $creditmemoMock->method('getOrder')->willReturn($orderMock);

@@ -152,6 +152,9 @@ class PushProcessorsFactoryTest extends \Buckaroo\Magento2\Test\BaseTest
         ];
     }
 
+    /**
+     * @dataProvider processorResolutionProvider
+     */
     #[DataProvider('processorResolutionProvider')]
     public function testGetResolvesProcessorClass(
         string $paymentMethod,

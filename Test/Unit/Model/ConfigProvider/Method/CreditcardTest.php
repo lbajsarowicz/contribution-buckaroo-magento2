@@ -118,6 +118,7 @@ class CreditcardTest extends BaseTest
      * for PayLink orders paid by card.
      *
      * @param string|null $cardType
+     * @dataProvider unresolvableCardTypeProvider
      */
     #[DataProvider('unresolvableCardTypeProvider')]
     public function testGetCardNameReturnsNullWhenTheCodeCannotBeResolved($cardType)

@@ -23,12 +23,12 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 
 use Buckaroo\Magento2\Gateway\Helper\SubjectReader;
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\ReturnUrlDataBuilder;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Framework\Data\Form\FormKey;
 use Magento\Framework\UrlInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class ReturnUrlDataBuilderTest extends AbstractDataBuilderTest
+class ReturnUrlDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var ReturnUrlDataBuilder

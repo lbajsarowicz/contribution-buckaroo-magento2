@@ -70,6 +70,7 @@ class TransactionCurrencyResolverTest extends TestCase
      * @param string|null $expectedCurrency
      *
      * @throws Exception
+     * @dataProvider resolveDataProvider
      */
     #[DataProvider('resolveDataProvider')]
     public function testResolve(

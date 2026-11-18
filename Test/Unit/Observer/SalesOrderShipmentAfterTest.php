@@ -95,6 +95,7 @@ class SalesOrderShipmentAfterTest extends \Buckaroo\Magento2\Test\BaseTest
      * 300000009 the whole invoice was lost with the failed capture. There is nothing to take, so
      * it must be captured offline.
      *
+     * @dataProvider invoiceTotalProvider
      */
     #[DataProvider('invoiceTotalProvider')]
     public function testAnInvoiceThatChargesNothingIsNotSentToTheGateway(float $grandTotal, bool $expected): void
@@ -157,6 +158,7 @@ class SalesOrderShipmentAfterTest extends \Buckaroo\Magento2\Test\BaseTest
      * to invoice and capture its own lines too.
      *
      * @param string $methodCode
+     * @dataProvider authorizeMethodProvider
      */
     #[DataProvider('authorizeMethodProvider')]
     public function testASecondShipmentAlsoInvoicesForTheOtherAuthorizeMethods(string $methodCode): void
@@ -443,6 +445,7 @@ class SalesOrderShipmentAfterTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $totalInvoiced
      * @param float $invoiceTotal
      * @param bool  $expectOffline
+     * @dataProvider captureCaseProvider
      */
     #[DataProvider('captureCaseProvider')]
     public function testTheCaptureCaseFollowsTheMoneyNotTheFlag(
@@ -494,6 +497,7 @@ class SalesOrderShipmentAfterTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $parentQtyShipped
      * @param float $childQtyOrdered
      * @param float $expected
+     * @dataProvider bundleChildQtyProvider
      */
     #[DataProvider('bundleChildQtyProvider')]
     public function testABundleChildFollowsTheShareOfTheBundleThatShipped(

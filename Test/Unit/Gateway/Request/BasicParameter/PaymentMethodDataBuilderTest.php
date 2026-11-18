@@ -25,9 +25,9 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\PaymentMethodDataBuilder;
 use Buckaroo\Magento2\Helper\PaymentGroupTransaction;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 
-class PaymentMethodDataBuilderTest extends AbstractDataBuilderTest
+class PaymentMethodDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var PaymentMethodDataBuilder
@@ -54,6 +54,7 @@ class PaymentMethodDataBuilderTest extends AbstractDataBuilderTest
      *
      * @param string $payment_method
      * @param string $expectedResult
+     * @dataProvider buildDataProvider
      */
     #[DataProvider('buildDataProvider')]
     public function testBuild(string $payment_method, string $expectedResult): void

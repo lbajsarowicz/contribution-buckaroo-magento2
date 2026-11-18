@@ -41,6 +41,9 @@ class AfterpayLanguageResolverTest extends TestCase
         $this->resolver = new AfterpayLanguageResolver();
     }
 
+    /**
+     * @dataProvider languageProvider
+     */
     #[DataProvider('languageProvider')]
     public function testResolvesLanguage(?string $country, ?string $hint, string $expected): void
     {

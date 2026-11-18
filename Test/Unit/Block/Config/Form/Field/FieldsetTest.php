@@ -60,6 +60,7 @@ class FieldsetTest extends BaseTest
      * @param $configValue
      * @param $expected
      *
+     * @dataProvider getFrontendClassProvider
      */
     #[DataProvider('getFrontendClassProvider')]
     public function testGetFrontendClass($configValue, $expected)
@@ -148,6 +149,7 @@ class FieldsetTest extends BaseTest
      * @param $website
      * @param $expected
      *
+     * @dataProvider getScopeValueProvider
      */
     #[DataProvider('getScopeValueProvider')]
     public function testGetScopeValue($store, $website, $expected)

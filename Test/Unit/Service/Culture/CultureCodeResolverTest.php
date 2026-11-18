@@ -38,6 +38,9 @@ class CultureCodeResolverTest extends TestCase
         $this->resolver = new CultureCodeResolver();
     }
 
+    /**
+     * @dataProvider resolveProvider
+     */
     #[DataProvider('resolveProvider')]
     public function testResolve(?string $country, ?string $localeHint, string $expected): void
     {

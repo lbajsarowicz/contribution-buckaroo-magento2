@@ -42,6 +42,7 @@ class WalletCardNetworkValidatorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed  $applepayNetwork
      * @param mixed  $googlepayPaymentData
      * @param bool   $isValid
+     * @dataProvider cardNetworkProvider
      */
     #[DataProvider('cardNetworkProvider')]
     public function testUnsupportedCardNetworkIsRejected(

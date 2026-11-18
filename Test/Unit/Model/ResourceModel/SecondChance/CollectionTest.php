@@ -208,7 +208,6 @@ class CollectionTest extends TestCase
             );
 
         $property = new \ReflectionProperty(Collection::class, 'dateTime');
-        $property->setAccessible(true);
         $property->setValue($collection, $dateTime);
 
         return $collection;

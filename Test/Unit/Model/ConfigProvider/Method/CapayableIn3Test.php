@@ -115,6 +115,7 @@ class CapayableIn3Test extends BaseTest
      * @param $fee
      * @param $expected
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($fee, $expected)

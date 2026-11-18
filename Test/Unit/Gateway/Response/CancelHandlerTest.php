@@ -24,7 +24,7 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Response;
 use Buckaroo\Magento2\Gateway\Response\CancelHandler;
 use Buckaroo\Magento2\Model\Service\Order\ReservationCancellationState;
 
-class CancelHandlerTest extends AbstractResponseHandlerTest
+class CancelHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var CancelHandler

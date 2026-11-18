@@ -58,6 +58,7 @@ class ApplepayPaymentDataValidatorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param string $integrationMode
      * @param mixed  $paymentData
      * @param bool   $isValid
+     * @dataProvider paymentProvider
      */
     #[DataProvider('paymentProvider')]
     public function testOrderNeedsApplePayDataInInlineMode(

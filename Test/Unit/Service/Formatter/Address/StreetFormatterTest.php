@@ -75,6 +75,7 @@ class StreetFormatterTest extends BaseTest
      * @param $street
      * @param $expected
      *
+     * @dataProvider formatProvider
      */
     #[DataProvider('formatProvider')]
     public function testFormat($street, $expected)

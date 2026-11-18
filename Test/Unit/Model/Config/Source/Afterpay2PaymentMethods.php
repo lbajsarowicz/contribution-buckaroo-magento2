@@ -48,6 +48,7 @@ class Afterpay2PaymentMethodsTest extends BaseTest
     /**
      * @param $paymentOption
      *
+     * @dataProvider toOptionArrayProvider
      */
     #[DataProvider('toOptionArrayProvider')]
     public function testToOptionArray($paymentOption)

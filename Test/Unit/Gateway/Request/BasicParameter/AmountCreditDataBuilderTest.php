@@ -28,7 +28,7 @@ use Buckaroo\Magento2\Gateway\Request\BasicParameter\AmountCreditDataBuilder;
 use Buckaroo\Magento2\Service\Refund\RefundCapResolver;
 use Buckaroo\Magento2\Service\RefundGroupTransactionService;
 use Buckaroo\Magento2\Service\TransactionCurrencyResolver;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use InvalidArgumentException;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Http\ClientException;
@@ -37,7 +37,7 @@ use Magento\Sales\Model\Order\Creditmemo;
 use Magento\Sales\Model\Order\Payment;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class AmountCreditDataBuilderTest extends AbstractDataBuilderTest
+class AmountCreditDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var MockObject|TransactionCurrencyResolver
@@ -158,6 +158,7 @@ class AmountCreditDataBuilderTest extends AbstractDataBuilderTest
      *
      * @throws ClientException
      * @throws ConverterException
+     * @dataProvider buildDataProvider
      */
     #[DataProvider('buildDataProvider')]
     public function testBuild(float $amount, float $amountLeftToRefund, float $expectedResult): void

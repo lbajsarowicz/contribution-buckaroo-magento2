@@ -85,6 +85,7 @@ class OrderCreateAddressTest extends \Buckaroo\Magento2\Test\BaseTest
 
     /**
      * @param bool $isGuest
+     * @dataProvider guestProvider
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('guestProvider')]
     public function testTheOrderUpdateIsToldWhetherTheOrderIsAGuestOrder(bool $isGuest): void

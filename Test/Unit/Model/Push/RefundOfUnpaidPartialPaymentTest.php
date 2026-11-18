@@ -52,6 +52,7 @@ class RefundOfUnpaidPartialPaymentTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float  $totalPaid
      * @param string $partOrder
      * @param bool   $partExists
+     * @dataProvider otherRefundProvider
      */
     #[\PHPUnit\Framework\Attributes\DataProvider('otherRefundProvider')]
     public function testOtherRefundsKeepTheCreditMemoFlow(

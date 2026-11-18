@@ -44,6 +44,9 @@ class ClicktopayTest extends BaseTest
         ];
     }
 
+    /**
+     * @dataProvider configProvider
+     */
     #[DataProvider('configProvider')]
     public function testGetConfig(bool $active): void
     {

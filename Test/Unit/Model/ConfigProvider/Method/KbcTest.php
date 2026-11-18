@@ -54,6 +54,7 @@ class KbcTest extends BaseTest
      *
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @dataProvider getConfigProvider
      */
     #[DataProvider('getConfigProvider')]
     public function testGetConfig($active, $expected)
@@ -141,6 +142,7 @@ class KbcTest extends BaseTest
      * @param $value
      * @param $expected
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($value, $expected)

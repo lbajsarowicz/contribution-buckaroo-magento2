@@ -53,6 +53,9 @@ class EditTest extends \Buckaroo\Magento2\Test\BaseTest
         ];
     }
 
+    /**
+     * @dataProvider headerTextProvider
+     */
     #[DataProvider('headerTextProvider')]
     public function testGetHeaderText($id, $label, $expectedText)
     {

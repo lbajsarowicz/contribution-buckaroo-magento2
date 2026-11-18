@@ -51,6 +51,7 @@ class VisibleFrontBackTest extends BaseTest
     /**
      * @param $visibleFrontBack
      *
+     * @dataProvider toOptionArrayProvider
      */
     #[DataProvider('toOptionArrayProvider')]
     public function testToOptionArray($visibleFrontBack)
@@ -83,6 +84,7 @@ class VisibleFrontBackTest extends BaseTest
     /**
      * @param $visibleFrontBack
      *
+     * @dataProvider toArrayProvider
      */
     #[DataProvider('toArrayProvider')]
     public function testToArray($visibleFrontBack)

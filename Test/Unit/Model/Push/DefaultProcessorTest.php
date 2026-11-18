@@ -132,6 +132,9 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
         $this->assertTrue($this->invoke('processPushByStatus', $instance));
     }
 
+    /**
+     * @dataProvider pendingPaymentEmailProvider
+     */
     #[DataProvider('pendingPaymentEmailProvider')]
     public function testShouldSendPendingPaymentEmail(
         bool $emailSent,
@@ -237,6 +240,7 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param bool       $isSameCurrency
      * @param bool       $isCaptureFinal
      * @param float      $expected
+     * @dataProvider captureNotificationAmountProvider
      */
     #[DataProvider('captureNotificationAmountProvider')]
     public function testCaptureNotificationUsesTheAmountTheGatewayCaptured(
@@ -290,6 +294,7 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param string $pushedCurrency
      * @param string $orderCurrency
      * @param float  $expected
+     * @dataProvider captureNotificationCurrencyProvider
      */
     #[DataProvider('captureNotificationCurrencyProvider')]
     public function testCaptureNotificationAmountIsExpressedInTheBaseCurrency(
@@ -355,6 +360,7 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param bool   $isFraudDetected
      * @param string $expectedState
      * @param string $expectedStatus
+     * @dataProvider succeededPushSettlementProvider
      */
     #[DataProvider('succeededPushSettlementProvider')]
     public function testSucceededPushOnlyMovesTheOrderToProcessingWhenItSettlesTheOrder(
@@ -460,6 +466,7 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param int    $statusCode
      * @param string $orderState
      * @param bool   $expectsComment
+     * @dataProvider statusMessageHistoryProvider
      */
     #[DataProvider('statusMessageHistoryProvider')]
     public function testStatusMessageIsOnlyRecordedWhenItStillDescribesTheOrder(
@@ -554,6 +561,7 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param string|null $groupTransactionType
      * @param string|null $relatedPartialPayment
      * @param bool        $expected
+     * @dataProvider partialPaymentPushProvider
      */
     #[DataProvider('partialPaymentPushProvider')]
     public function testAPushIsRecognisedAsOnePartOfASplitPayment(
@@ -639,6 +647,7 @@ class DefaultProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param bool     $invoiceEmail
      * @param bool     $expectStamp
      * @param int      $expectedSaves
+     * @dataProvider invoiceSaveProvider
      */
     #[DataProvider('invoiceSaveProvider')]
     public function testInvoiceIsOnlySavedToStampItsTransactionOrToNumberItsEmail(

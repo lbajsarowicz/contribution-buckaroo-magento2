@@ -95,6 +95,7 @@ class GiftcardsTest extends BaseTest
      * @param $giftcardData
      * @param $expected
      *
+     * @dataProvider toOptionArrayProvider
      */
     #[DataProvider('toOptionArrayProvider')]
     public function testToOptionArray($giftcardData, $expected)

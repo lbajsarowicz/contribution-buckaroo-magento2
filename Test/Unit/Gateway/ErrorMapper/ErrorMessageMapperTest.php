@@ -92,6 +92,7 @@ class ErrorMessageMapperTest extends BaseTest
 
     /**
      * @param mixed $mappingResult
+     * @dataProvider unmappedResultProvider
      */
     #[DataProvider('unmappedResultProvider')]
     public function testUnmappedShortCodeReturnsNull($mappingResult): void

@@ -44,6 +44,7 @@ class ArticleIdentifierLengthTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param string $handler
      * @param int    $limit
+     * @dataProvider limitedHandlerProvider
      */
     #[DataProvider('limitedHandlerProvider')]
     public function testAnIdentifierWithinTheLimitIsSentUnchanged(string $handler, int $limit): void
@@ -56,6 +57,7 @@ class ArticleIdentifierLengthTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param string $handler
      * @param int    $limit
+     * @dataProvider limitedHandlerProvider
      */
     #[DataProvider('limitedHandlerProvider')]
     public function testALongerIdentifierIsShortenedToTheLimit(string $handler, int $limit): void
@@ -153,6 +155,7 @@ class ArticleIdentifierLengthTest extends \Buckaroo\Magento2\Test\BaseTest
 
     /**
      * @param string $handler
+     * @dataProvider unlimitedHandlerProvider
      */
     #[DataProvider('unlimitedHandlerProvider')]
     public function testMethodsThatAcceptTheWholeSkuColumnSendItUnchanged(string $handler): void

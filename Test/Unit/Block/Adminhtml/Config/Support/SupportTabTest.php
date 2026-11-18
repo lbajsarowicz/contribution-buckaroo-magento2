@@ -56,6 +56,7 @@ class SupportTabTest extends BaseTest
      * @param string $version
      * @param string $phpVersions
      * @param int    $returnValue
+     * @dataProvider getVersionsDataProvider
      */
     #[DataProvider('getVersionsDataProvider')]
     public function testWithDifferentMagentoVersionsAndPhpVersions(string $version, string $phpVersions, int $returnValue)

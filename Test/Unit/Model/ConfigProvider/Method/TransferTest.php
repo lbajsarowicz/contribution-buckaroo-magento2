@@ -129,6 +129,7 @@ class TransferTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param $value
      * @param $expected
      *
+     * @dataProvider getSendMailProvider
      */
     #[DataProvider('getSendMailProvider')]
     public function testHasSendMail($value, $expected)

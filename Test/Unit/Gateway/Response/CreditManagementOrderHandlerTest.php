@@ -23,7 +23,7 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Response;
 
 use Buckaroo\Magento2\Gateway\Response\CreditManagementOrderHandler;
 
-class CreditManagementOrderHandlerTest extends AbstractResponseHandlerTest
+class CreditManagementOrderHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var CreditManagementOrderHandler

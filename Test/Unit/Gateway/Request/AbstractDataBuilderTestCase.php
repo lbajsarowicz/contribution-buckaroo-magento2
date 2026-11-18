@@ -19,18 +19,20 @@
  */
 declare(strict_types=1);
 
-namespace Buckaroo\Magento2\Test\Unit\Gateway\Response;
+namespace Buckaroo\Magento2\Test\Unit\Gateway\Request;
 
 use Buckaroo\Magento2\Gateway\Data\Order\OrderAdapter;
-use Buckaroo\Transaction\Response\TransactionResponse;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
+use Magento\Payment\Model\InfoInterface;
 use Magento\Payment\Model\MethodInterface;
 use Magento\Sales\Model\Order;
-use Magento\Sales\Model\Order\Payment;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
-abstract class AbstractResponseHandlerTest extends TestCase
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
+abstract class AbstractDataBuilderTestCase extends TestCase
 {
     /**
      * @var MockObject|Order
@@ -38,19 +40,9 @@ abstract class AbstractResponseHandlerTest extends TestCase
     protected $orderMock;
 
     /**
-     * @var Payment|MockObject
-     */
-    protected $orderPaymentMock;
-
-    /**
      * @var (MethodInterface&MockObject)|MockObject
      */
     protected $paymentMethodInstanceMock;
-
-    /**
-     * @var TransactionResponse|MockObject
-     */
-    protected $transactionResponse;
 
     /**
      * @inheritdoc
@@ -60,10 +52,6 @@ abstract class AbstractResponseHandlerTest extends TestCase
         $this->orderMock = $this->createMock(Order::class);
 
         $this->paymentMethodInstanceMock = $this->createMock(MethodInterface::class);
-
-        $this->orderPaymentMock = $this->createMock(Payment::class);
-
-        $this->transactionResponse = $this->createMock(TransactionResponse::class);
     }
 
     /**
@@ -75,32 +63,20 @@ abstract class AbstractResponseHandlerTest extends TestCase
 
         $orderAdapter = $this->createMock(OrderAdapter::class);
 
-        $orderAdapter->expects($this->atMost(1))
-            ->method('getOrder')
+        $orderAdapter->method('getOrder')
             ->willReturn($this->orderMock);
 
-        $paymentDOMock->expects($this->atMost(1))
-            ->method('getOrder')
+        $paymentDOMock->method('getOrder')
             ->willReturn($orderAdapter);
 
-        $this->orderPaymentMock->expects($this->atMost(1))
-            ->method('getMethodInstance')
+        $infoInterface = $this->createMock(InfoInterface::class);
+
+        $infoInterface->method('getMethodInstance')
             ->willReturn($this->paymentMethodInstanceMock);
 
-        $paymentDOMock->expects($this->atMost(1))
-            ->method('getPayment')
-            ->willReturn($this->orderPaymentMock);
+        $paymentDOMock->method('getPayment')
+            ->willReturn($infoInterface);
 
         return $paymentDOMock;
-    }
-
-    /**
-     * Return the transaction response used in Response Handlers Unit Tests
-     *
-     * @return TransactionResponse[]|MockObject[]
-     */
-    protected function getTransactionResponse(): array
-    {
-        return ['object' => $this->transactionResponse];
     }
 }

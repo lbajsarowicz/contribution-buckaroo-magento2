@@ -23,7 +23,7 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Response;
 
 use Buckaroo\Magento2\Gateway\Response\TransactionIdHandler;
 
-class TransactionIdHandlerTest extends AbstractResponseHandlerTest
+class TransactionIdHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var TransactionIdHandler

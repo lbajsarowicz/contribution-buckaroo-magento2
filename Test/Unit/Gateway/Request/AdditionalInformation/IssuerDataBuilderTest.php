@@ -46,6 +46,7 @@ class IssuerDataBuilderTest extends TestCase
     /**
      *
      * @param array $expectedResult
+     * @dataProvider buildDataProvider
      */
     #[DataProvider('buildDataProvider')]
     public function testBuild(array $expectedResult): void

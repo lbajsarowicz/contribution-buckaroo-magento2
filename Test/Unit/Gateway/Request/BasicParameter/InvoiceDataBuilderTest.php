@@ -22,9 +22,9 @@ declare(strict_types=1);
 namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\InvoiceDataBuilder;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 
-class InvoiceDataBuilderTest extends AbstractDataBuilderTest
+class InvoiceDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var InvoiceDataBuilder

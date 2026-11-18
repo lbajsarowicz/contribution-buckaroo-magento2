@@ -25,7 +25,7 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Response;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Buckaroo\Magento2\Gateway\Response\SkipPushHandler;
 
-class SkipPushHandlerTest extends AbstractResponseHandlerTest
+class SkipPushHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var SkipPushHandler
@@ -45,6 +45,7 @@ class SkipPushHandlerTest extends AbstractResponseHandlerTest
      * @param $skipPush
      *
      * @throws \Exception
+     * @dataProvider skipPushDataProvider
      */
     #[DataProvider('skipPushDataProvider')]
     public function testHandle($skipPush): void

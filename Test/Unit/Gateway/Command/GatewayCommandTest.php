@@ -355,6 +355,7 @@ class GatewayCommandTest extends BaseTest
      * @param \Exception $clientError
      * @param string $expectedCommandMessage
      * @param string $expectedLogMessage
+     * @dataProvider clientErrorProvider
      */
     #[DataProvider('clientErrorProvider')]
     public function testClientErrorsAreWrappedInCommandExceptionAndLogged(

@@ -36,6 +36,7 @@ class CreditcardTypeDataBuilderTest extends TestCase
      * @param string|null $cardType     what Magento's own card form captured
      * @param string|null $actualMethod what Buckaroo reported the shopper paid with
      * @param string|null $expected
+     * @dataProvider cardNameProvider
      */
     #[DataProvider('cardNameProvider')]
     public function testTheRequestCarriesTheCardBrand(

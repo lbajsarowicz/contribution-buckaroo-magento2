@@ -24,11 +24,11 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\Address;
 
 use PHPUnit\Framework\Attributes\DataProvider;
 use Buckaroo\Magento2\Gateway\Request\Address\AfterpayBillingAddressDataBuilder;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Sales\Model\Order\Address;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class AfterpayBillingAddressDataBuilderTest extends AbstractDataBuilderTest
+class AfterpayBillingAddressDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var AfterpayBillingAddressDataBuilder
@@ -56,6 +56,7 @@ class AfterpayBillingAddressDataBuilderTest extends AbstractDataBuilderTest
      * @param string $countryId
      * @param array  $street
      * @param string $expectedStreet
+     * @dataProvider dachStreetDataProvider
      */
     #[DataProvider('dachStreetDataProvider')]
     public function testDachStreetUsesOnlyFirstLine(string $countryId, array $street, string $expectedStreet): void

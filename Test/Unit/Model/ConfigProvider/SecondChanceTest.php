@@ -59,6 +59,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param bool  $expected
      *
+     * @dataProvider isSecondChanceEnabledProvider
      */
     #[DataProvider('isSecondChanceEnabledProvider')]
     public function testIsSecondChanceEnabled($configValue, $expected)
@@ -95,6 +96,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param bool  $expected
      *
+     * @dataProvider isFirstEmailEnabledProvider
      */
     #[DataProvider('isFirstEmailEnabledProvider')]
     public function testIsFirstEmailEnabled($configValue, $expected)
@@ -131,6 +133,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param bool  $expected
      *
+     * @dataProvider isSecondEmailEnabledProvider
      */
     #[DataProvider('isSecondEmailEnabledProvider')]
     public function testIsSecondEmailEnabled($configValue, $expected)
@@ -167,6 +170,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed  $configValue
      * @param string $expected
      *
+     * @dataProvider getFirstEmailTemplateProvider
      */
     #[DataProvider('getFirstEmailTemplateProvider')]
     public function testGetFirstEmailTemplate($configValue, $expected)
@@ -205,6 +209,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed  $configValue
      * @param string $expected
      *
+     * @dataProvider getSecondEmailTemplateProvider
      */
     #[DataProvider('getSecondEmailTemplateProvider')]
     public function testGetSecondEmailTemplate($configValue, $expected)
@@ -245,6 +250,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param int   $expected
      *
+     * @dataProvider getFirstEmailTimingProvider
      */
     #[DataProvider('getFirstEmailTimingProvider')]
     public function testGetFirstEmailTiming($configValue, $expected)
@@ -283,6 +289,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param int   $expected
      *
+     * @dataProvider getSecondEmailTimingProvider
      */
     #[DataProvider('getSecondEmailTimingProvider')]
     public function testGetSecondEmailTiming($configValue, $expected)
@@ -320,6 +327,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param bool  $expected
      *
+     * @dataProvider shouldSkipOutOfStockProvider
      */
     #[DataProvider('shouldSkipOutOfStockProvider')]
     public function testShouldSkipOutOfStock($configValue, $expected)
@@ -358,6 +366,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param int   $expected
      *
+     * @dataProvider getPruneDaysProvider
      */
     #[DataProvider('getPruneDaysProvider')]
     public function testGetPruneDays($configValue, $expected)
@@ -395,6 +404,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param mixed $configValue
      * @param bool  $expected
      *
+     * @dataProvider canSendMultipleEmailsProvider
      */
     #[DataProvider('canSendMultipleEmailsProvider')]
     public function testCanSendMultipleEmails($configValue, $expected)

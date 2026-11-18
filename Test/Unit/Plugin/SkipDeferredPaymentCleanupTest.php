@@ -148,6 +148,7 @@ class SkipDeferredPaymentCleanupTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param int  $ageInDays
      * @param bool $expectsProceed
+     * @dataProvider expiryWindowProvider
      */
     #[DataProvider('expiryWindowProvider')]
     public function testOrdersOlderThanBuckaroosWindowAreNotLeftWaitingForever(
@@ -179,6 +180,7 @@ class SkipDeferredPaymentCleanupTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param bool   $ppeCronEnabled
      * @param int    $ppeExpireDays
      * @param bool   $expectsProceed
+     * @dataProvider managedExpiryProvider
      */
     #[DataProvider('managedExpiryProvider')]
     public function testOnlyOrdersBuckarooWillExpireAreKeptFromTheCleanupCron(

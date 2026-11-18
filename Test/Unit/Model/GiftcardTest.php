@@ -54,6 +54,7 @@ class GiftcardTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param $servicecode
      * @param $expected
      *
+     * @dataProvider servicecodeProvider
      */
     #[DataProvider('servicecodeProvider')]
     public function testShouldBeAbleToSetAndGetServicecode($servicecode, $expected)
@@ -89,6 +90,7 @@ class GiftcardTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param $label
      * @param $expected
      *
+     * @dataProvider labelProvider
      */
     #[DataProvider('labelProvider')]
     public function testShouldBeAbleToSetAndGetLabel($label, $expected)

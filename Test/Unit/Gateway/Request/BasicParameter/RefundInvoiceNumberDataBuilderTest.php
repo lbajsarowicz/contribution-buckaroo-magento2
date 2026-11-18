@@ -42,6 +42,7 @@ class RefundInvoiceNumberDataBuilderTest extends \Buckaroo\Magento2\Test\BaseTes
     /**
      * @param int    $storedCreditmemos
      * @param string $expectedInvoice
+     * @dataProvider refundNumberProvider
      */
     #[DataProvider('refundNumberProvider')]
     public function testEveryRefundGetsItsOwnInvoiceNumber(

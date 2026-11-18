@@ -118,6 +118,7 @@ class ZakelijkOpRekeningTest extends BaseTest
      *
      * @dataProvider getPaymentFeeProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($fee, $expected)
     {
         $scopeConfigMock = $this->getMockBuilder(ScopeConfigInterface::class)->getMock();
