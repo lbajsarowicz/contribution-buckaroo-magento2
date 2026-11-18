@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Abstract base class for Gateway Request Builder tests
  */
-abstract class AbstractRequestBuilderTest extends TestCase
+abstract class AbstractRequestBuilderTestCase extends TestCase
 {
     /**
      * Get a payment data object mock for tests

@@ -75,6 +75,7 @@ class OriginalTransactionKeyDataBuilderTest extends TestCase
      * @param array $additionalInformation
      * @param string|null $expectedKey
      * @param string|null $invoiceTransactionId
+     * @dataProvider buildDataProvider
      */
     #[DataProvider('buildDataProvider')]
     public function testBuild(

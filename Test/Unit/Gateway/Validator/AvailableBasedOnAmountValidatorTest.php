@@ -37,12 +37,13 @@ class AvailableBasedOnAmountValidatorTest extends TestCase
      * @param mixed $minimum
      * @param mixed $grandTotal
      * @param mixed $isValid
+     * @dataProvider availableBasedOnAmountValidatorDataProvider
      */
     #[DataProvider('availableBasedOnAmountValidatorDataProvider')]
     public function testValidate($maximum, $minimum, $grandTotal, $isValid)
     {
         $paymentMethodInstanceMock = $this->createMock(MethodInterface::class);
-        $paymentMethodInstanceMock->expects($this->any())
+        $paymentMethodInstanceMock
             ->method('getConfigData')
             ->willReturnMap([
                 ['max_amount', 1, $maximum],
@@ -84,6 +85,7 @@ class AvailableBasedOnAmountValidatorTest extends TestCase
     /**
      * Zakelijk op rekening is only offered within the range ABN AMRO accepts
      * (302.50 - 25000), whatever lower minimum or higher maximum is configured.
+     * @dataProvider zakelijkOpRekeningDataProvider
      */
     #[DataProvider('zakelijkOpRekeningDataProvider')]
     public function testZakelijkOpRekeningStaysWithinTheAbnAmroRange($maximum, $minimum, $grandTotal, $isValid)

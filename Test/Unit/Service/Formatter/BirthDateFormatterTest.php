@@ -65,6 +65,7 @@ class BirthDateFormatterTest extends BaseTest
     /**
      * @param string $raw
      * @param string $expected
+     * @dataProvider parsableDateProvider
      */
     #[DataProvider('parsableDateProvider')]
     public function testFormatParsesEverySeparatorTheCheckoutAccepts(string $raw, string $expected): void
@@ -100,6 +101,7 @@ class BirthDateFormatterTest extends BaseTest
 
     /**
      * @param string|null $raw
+     * @dataProvider unusableDateProvider
      */
     #[DataProvider('unusableDateProvider')]
     public function testFormatReturnsNullInsteadOfThrowingOnUnusableInput(?string $raw): void

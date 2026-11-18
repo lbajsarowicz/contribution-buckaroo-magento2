@@ -65,6 +65,7 @@ class KlarnaTest extends BaseTest
      * @param $active
      * @param $expected
      *
+     * @dataProvider getConfigProvider
      */
     #[DataProvider('getConfigProvider')]
     public function testGetConfig($active, $expected)
@@ -142,6 +143,7 @@ class KlarnaTest extends BaseTest
      * @param $value
      * @param $expected
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($value, $expected)

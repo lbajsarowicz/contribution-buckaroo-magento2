@@ -21,6 +21,7 @@ class ResponseCodeSDKValidatorTest extends TestCase
     /**
      * The gateway description holds no reason, so it must be handed over empty for the
      * gateway command to replace with the standard decline message, and logged as critical.
+     * @dataProvider descriptionWithoutReasonProvider
      */
     #[DataProvider('descriptionWithoutReasonProvider')]
     public function testDeclineWithoutReasonIsBlankedAndLogged(string $gatewayDescription): void

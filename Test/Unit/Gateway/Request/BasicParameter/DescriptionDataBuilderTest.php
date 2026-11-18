@@ -23,11 +23,11 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\DescriptionDataBuilder;
 use Buckaroo\Magento2\Model\ConfigProvider\Account;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Store\Model\Store;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class DescriptionDataBuilderTest extends AbstractDataBuilderTest
+class DescriptionDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var MockObject|Account

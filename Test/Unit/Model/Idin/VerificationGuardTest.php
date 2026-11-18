@@ -89,6 +89,9 @@ class VerificationGuardTest extends BaseTest
         ];
     }
 
+    /**
+     * @dataProvider shopperAreaProvider
+     */
     #[DataProvider('shopperAreaProvider')]
     public function testRefusesUnverifiedQuote(string $area): void
     {
@@ -170,6 +173,9 @@ class VerificationGuardTest extends BaseTest
         ];
     }
 
+    /**
+     * @dataProvider checkoutWithoutIdinStepProvider
+     */
     #[DataProvider('checkoutWithoutIdinStepProvider')]
     public function testAllowsUnverifiedQuoteWhenCheckoutHasNoIdinStep(string $checkout, string $advice): void
     {

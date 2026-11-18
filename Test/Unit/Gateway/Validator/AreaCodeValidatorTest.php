@@ -47,6 +47,9 @@ class AreaCodeValidatorTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider validateDataProvider
+     */
     #[DataProvider('validateDataProvider')]
     public function testValidate(
         string $areaCode,

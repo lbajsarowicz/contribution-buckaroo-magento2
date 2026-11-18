@@ -134,8 +134,7 @@ class OrderCancelAfterTest extends TestCase
         $order->method('getIncrementId')->willReturn(self::ORDER);
         $order->method('getStoreId')->willReturn(1);
 
-        $event = $this->getMockBuilder(Event::class)->addMethods(['getOrder'])->getMock();
-        $event->method('getOrder')->willReturn($order);
+        $event = new Event(['order' => $order]);
 
         $observer = $this->createMock(Observer::class);
         $observer->method('getEvent')->willReturn($event);

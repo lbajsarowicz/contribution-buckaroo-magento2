@@ -155,7 +155,6 @@ class KlarnaKpUniqueArticleNumbersTest extends TestCase
     private function identifierOf(KlarnaKpHandler $handler, $item): string
     {
         $method = new \ReflectionMethod($handler, 'getIdentifier');
-        $method->setAccessible(true);
 
         return (string)$method->invoke($handler, $item);
     }

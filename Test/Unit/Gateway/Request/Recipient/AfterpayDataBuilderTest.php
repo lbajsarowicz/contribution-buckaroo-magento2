@@ -27,12 +27,12 @@ use Buckaroo\Magento2\Gateway\Request\Recipient\AfterpayDataBuilder;
 use Buckaroo\Magento2\Logging\BuckarooLoggerInterface;
 use Buckaroo\Magento2\Service\Culture\AfterpayLanguageResolver;
 use Buckaroo\Magento2\Service\Formatter\BirthDateFormatter;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Sales\Model\Order\Address;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class AfterpayDataBuilderTest extends AbstractDataBuilderTest
+class AfterpayDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var AfterpayDataBuilder
@@ -65,6 +65,7 @@ class AfterpayDataBuilderTest extends AbstractDataBuilderTest
      * @param string      $countryId
      * @param array       $street
      * @param string|null $expectedCareOf
+     * @dataProvider careOfDataProvider
      */
     #[DataProvider('careOfDataProvider')]
     public function testBuildCareOfMapping(string $countryId, array $street, ?string $expectedCareOf): void

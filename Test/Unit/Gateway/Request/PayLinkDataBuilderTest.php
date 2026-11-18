@@ -28,7 +28,7 @@ use Buckaroo\Magento2\Model\ConfigProvider\Method\Giftcards;
 use Buckaroo\Magento2\Model\ConfigProvider\Method\PayLink;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class PayLinkDataBuilderTest extends AbstractDataBuilderTest
+class PayLinkDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var PayLink|MockObject
@@ -63,6 +63,7 @@ class PayLinkDataBuilderTest extends AbstractDataBuilderTest
      * @param string      $configuredMethods
      * @param string|null $activeGiftcards
      * @param string      $expectedMethods
+     * @dataProvider buildDataProvider
      */
     #[DataProvider('buildDataProvider')]
     public function testBuild(

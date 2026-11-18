@@ -81,6 +81,7 @@ class CreateSecondChanceRecordTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param bool   $recordExists
      * @param int    $expectedCreateCalls
      * @param int    $expectedDebugCalls
+     * @dataProvider executeDataProvider
      */
     #[DataProvider('executeDataProvider')]
     public function testExecute(

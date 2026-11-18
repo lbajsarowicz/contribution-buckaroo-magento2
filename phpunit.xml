@@ -32,10 +32,10 @@
         <testsuite name="Buckaroo Magento2 Unit">
             <directory suffix="Test.php">Test/Unit</directory>
             <exclude>Test/BaseTest.php</exclude>
-            <exclude>Test/Unit/Gateway/Request/AbstractDataBuilderTest.php</exclude>
-            <exclude>Test/Unit/Gateway/Request/AbstractRequestBuilderTest.php</exclude>
-            <exclude>Test/Unit/Gateway/Response/AbstractResponseHandlerTest.php</exclude>
-            <exclude>Test/Unit/Model/AbstractCommandBasedTest.php</exclude>
+            <exclude>Test/Unit/Gateway/Request/AbstractDataBuilderTestCase.php</exclude>
+            <exclude>Test/Unit/Gateway/Request/AbstractRequestBuilderTestCase.php</exclude>
+            <exclude>Test/Unit/Gateway/Response/AbstractResponseHandlerTestCase.php</exclude>
+            <exclude>Test/Unit/Model/AbstractCommandBasedTestCase.php</exclude>
             <exclude>Test/Unit/Block/Adminhtml/System/Config/Fieldset/PaymentTest.php</exclude>
             <exclude>Test/Unit/Block/Adminhtml/Giftcard/EditTest.php</exclude>
             <exclude>Test/Unit/Controller/Redirect/ProcessTest.php</exclude>

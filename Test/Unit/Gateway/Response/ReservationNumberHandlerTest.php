@@ -30,7 +30,7 @@ use Buckaroo\Transaction\Response\TransactionResponse;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Model\Order;
 
-class ReservationNumberHandlerTest extends AbstractResponseHandlerTest
+class ReservationNumberHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var ReservationNumberHandler
@@ -61,6 +61,7 @@ class ReservationNumberHandlerTest extends AbstractResponseHandlerTest
      * @param array|null $serviceParameters
      *
      * @throws \Exception
+     * @dataProvider reservationNumberDataProvider
      */
     #[DataProvider('reservationNumberDataProvider')]
     public function testHandle(

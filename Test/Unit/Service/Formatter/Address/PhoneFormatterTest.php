@@ -146,6 +146,7 @@ class PhoneFormatterTest extends BaseTest
      * @param $country
      * @param $expected
      *
+     * @dataProvider formatProvider
      */
     #[DataProvider('formatProvider')]
     public function testFormat($number, $country, $expected)

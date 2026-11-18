@@ -41,6 +41,7 @@ class CalculationTest extends BaseTest
     /**
      * @param array $paymentOption
      *
+     * @dataProvider toOptionArrayProvider
      */
     #[DataProvider('toOptionArrayProvider')]
     public function testToOptionArray($paymentOption)

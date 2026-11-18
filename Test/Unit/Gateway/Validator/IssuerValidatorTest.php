@@ -57,6 +57,7 @@ class IssuerValidatorTest extends TestCase
      * @param mixed $paymentMethodCode
      * @param mixed $isValid
      * @param mixed $failMessage
+     * @dataProvider issuerValidatorDataProvider
      */
     #[DataProvider('issuerValidatorDataProvider')]
     public function testValidate($chosenIssuer, $paymentMethodCode, $isValid, $failMessage)

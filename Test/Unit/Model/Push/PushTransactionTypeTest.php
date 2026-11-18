@@ -316,6 +316,9 @@ class PushTransactionTypeTest extends \Buckaroo\Magento2\Test\BaseTest
         ];
     }
 
+    /**
+     * @dataProvider payPerEmailOriginProvider
+     */
     #[DataProvider('payPerEmailOriginProvider')]
     public function testIsFromPayPerEmailDetection(array $additionalInformation, bool $expected): void
     {

@@ -61,6 +61,7 @@ class SalesLayoutTest extends TestCase
     /**
      * @dataProvider salesPageLayouts
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('salesPageLayouts')]
     public function testOnlyAttachesTheFeeBlockToTheExistingTotalsBlock(string $handle, string $totalsBlock): void
     {
         $file = dirname(__DIR__, 3) . "/view/frontend/layout/{$handle}.xml";

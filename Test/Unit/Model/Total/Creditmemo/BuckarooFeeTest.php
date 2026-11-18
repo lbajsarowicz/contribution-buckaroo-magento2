@@ -74,6 +74,7 @@ class BuckarooFeeTest extends BaseTest
      * @param $feerefunded
      * @param $expectedGrandTotal
      * @param $expectedTotalRefunded
+     * @dataProvider collectProvider
      */
     #[DataProvider('collectProvider')]
     public function testCollect($fee, $feeinvoiced, $feerefunded, $expectedGrandTotal, $expectedTotalRefunded)

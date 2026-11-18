@@ -137,6 +137,7 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param string $paymentMethod
      * @param int    $expectedCalls
      *
+     * @dataProvider createSecondChanceProvider
      */
     #[DataProvider('createSecondChanceProvider')]
     public function testCreateSecondChance($secondChanceEnabled, $paymentMethod, $expectedCalls)
@@ -146,8 +147,8 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
         $payment = $this->getFakeMock(Payment::class, true);
 
         $order->method('getStore')->willReturn($store);
-        $order->expects($this->any())->method('getPayment')->willReturn($payment);
-        $payment->expects($this->any())->method('getMethod')->willReturn($paymentMethod);
+        $order->method('getPayment')->willReturn($payment);
+        $payment->method('getMethod')->willReturn($paymentMethod);
 
         $this->configProvider->method('isSecondChanceEnabled')
             ->with($store)
@@ -281,6 +282,7 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param array $stockData
      * @param bool  $expectedResult
      *
+     * @dataProvider checkOrderProductsIsInStockProvider
      */
     #[DataProvider('checkOrderProductsIsInStockProvider')]
     public function testCheckOrderProductsIsInStock($orderItems, $stockData, $expectedResult)
@@ -291,21 +293,21 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
         $items = [];
         foreach ($orderItems as $itemData) {
             $item = $this->getFakeMock(Item::class, true);
-            $item->expects($this->any())->method('getProductId')->willReturn($itemData['product_id']);
-            $item->expects($this->any())->method('getQtyOrdered')->willReturn($itemData['qty_ordered']);
-            $item->expects($this->any())->method('getProductType')->willReturn($itemData['product_type']);
+            $item->method('getProductId')->willReturn($itemData['product_id']);
+            $item->method('getQtyOrdered')->willReturn($itemData['qty_ordered']);
+            $item->method('getProductType')->willReturn($itemData['product_type']);
             $items[] = $item;
         }
 
         $order->method('getAllItems')->willReturn($items);
-        $order->expects($this->any())->method('getStore')->willReturn($store);
-        $store->expects($this->any())->method('getWebsiteId')->willReturn(1);
+        $order->method('getStore')->willReturn($store);
+        $store->method('getWebsiteId')->willReturn(1);
 
         $stockItemCalls = [];
         foreach ($stockData as $productId => $stock) {
             $stockItem = $this->getFakeMock(StockItemInterface::class, true);
-            $stockItem->expects($this->any())->method('getIsInStock')->willReturn($stock['is_in_stock']);
-            $stockItem->expects($this->any())->method('getQty')->willReturn($stock['qty']);
+            $stockItem->method('getIsInStock')->willReturn($stock['is_in_stock']);
+            $stockItem->method('getQty')->willReturn($stock['qty']);
             $stockItemCalls[] = [$productId, 1, $stockItem];
         }
 
@@ -335,6 +337,7 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param string $expectedTemplate
      *
      * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
+     * @dataProvider sendMailProvider
      */
     #[DataProvider('sendMailProvider')]
     public function testSendMail($step, $expectedTemplate)
@@ -348,11 +351,11 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
         $addressRenderer = $this->getFakeMock(Renderer::class, true);
         $paymentHelper = $this->getFakeMock(PaymentHelper::class, true);
 
-        $order->expects($this->any())->method('getStore')->willReturn($store);
-        $order->expects($this->any())->method('getIncrementId')->willReturn('000000001');
-        $order->expects($this->any())->method('getCustomerEmail')->willReturn('test@example.com');
-        $order->expects($this->any())->method('getCustomerName')->willReturn('John Doe');
-        $order->expects($this->any())->method('getPayment')->willReturn($payment);
+        $order->method('getStore')->willReturn($store);
+        $order->method('getIncrementId')->willReturn('000000001');
+        $order->method('getCustomerEmail')->willReturn('test@example.com');
+        $order->method('getCustomerName')->willReturn('John Doe');
+        $order->method('getPayment')->willReturn($payment);
 
         $secondChance->method('getToken')->willReturn('test_token');
         $secondChance->method('getOrderId')->willReturn('000000001');
@@ -813,13 +816,13 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param string $email
      * @param bool   $expected
+     * @dataProvider placeholderEmailProvider
      */
     #[DataProvider('placeholderEmailProvider')]
     public function testIsPlaceholderEmail(string $email, bool $expected): void
     {
         $instance = $this->getInstance();
         $method = new \ReflectionMethod($instance, 'isPlaceholderEmail');
-        $method->setAccessible(true);
 
         $this->assertSame($expected, $method->invoke($instance, $email));
     }
@@ -839,6 +842,7 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param int  $ageSeconds
      * @param bool $expected
+     * @dataProvider placeholderGraceProvider
      */
     #[DataProvider('placeholderGraceProvider')]
     public function testIsPastPlaceholderEmailGrace(int $ageSeconds, bool $expected): void
@@ -853,7 +857,6 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
 
         $instance = $this->getInstance(['dateTime' => $dateTime]);
         $method = new \ReflectionMethod($instance, 'isPastPlaceholderEmailGrace');
-        $method->setAccessible(true);
 
         $this->assertSame($expected, $method->invoke($instance, $item));
     }
@@ -967,7 +970,6 @@ class SecondChanceRepositoryTest extends \Buckaroo\Magento2\Test\BaseTest
 
         $instance = $this->getInstance(['dateTime' => $dateTime]);
         $method = new \ReflectionMethod($instance, 'isPastPlaceholderEmailGrace');
-        $method->setAccessible(true);
 
         $this->assertFalse($method->invoke($instance, $item));
     }

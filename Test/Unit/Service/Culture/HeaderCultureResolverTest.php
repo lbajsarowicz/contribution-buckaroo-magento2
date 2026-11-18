@@ -42,6 +42,9 @@ class HeaderCultureResolverTest extends TestCase
         $this->resolver = new CultureCodeResolver();
     }
 
+    /**
+     * @dataProvider headerCultureProvider
+     */
     #[DataProvider('headerCultureProvider')]
     public function testResolvesHeaderCulture(?string $country, ?string $hint, ?string $expected): void
     {

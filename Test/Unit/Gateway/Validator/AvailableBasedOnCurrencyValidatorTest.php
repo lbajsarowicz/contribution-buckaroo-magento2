@@ -44,6 +44,7 @@ class AvailableBasedOnCurrencyValidatorTest extends TestCase
      * @param string $quoteCurrency
      * @param bool   $currencyAllowed
      * @param bool   $expectedResult
+     * @dataProvider dataProviderTestValidate
      */
     #[DataProvider('dataProviderTestValidate')]
     public function testValidate(

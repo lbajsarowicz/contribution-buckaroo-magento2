@@ -71,6 +71,7 @@ class CancelTest extends BaseTest
      * @param $orderCancel
      * @param $expectedCallCount
      *
+     * @dataProvider cancelProvider
      */
     #[DataProvider('cancelProvider')]
     public function testCancel($accountCancel, $orderCancel, $expectedCallCount)
@@ -130,6 +131,7 @@ class CancelTest extends BaseTest
      * @param $method
      * @param $expectedCallCount
      *
+     * @dataProvider cancelOrderProvider
      */
     #[DataProvider('cancelOrderProvider')]
     public function testCancelOrder($method, $expectedCallCount)
@@ -189,6 +191,7 @@ class CancelTest extends BaseTest
      * @param $state
      * @param $expectedParameter
      *
+     * @dataProvider updateStatusProvider
      */
     #[DataProvider('updateStatusProvider')]
     public function testUpdateStatus($state, $expectedParameter)

@@ -25,7 +25,7 @@ use Buckaroo\Magento2\Gateway\Response\CaptureTransactionKeyHandler;
 use Buckaroo\Magento2\Model\Method\BuckarooAdapter;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 
-class CaptureTransactionKeyHandlerTest extends AbstractResponseHandlerTest
+class CaptureTransactionKeyHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var CaptureTransactionKeyHandler

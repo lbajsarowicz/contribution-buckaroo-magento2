@@ -26,7 +26,7 @@ use Buckaroo\Magento2\Helper\Data;
 use Magento\Framework\Registry;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class PaymentDetailsHandlerTest extends AbstractResponseHandlerTest
+class PaymentDetailsHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @var Data|MockObject

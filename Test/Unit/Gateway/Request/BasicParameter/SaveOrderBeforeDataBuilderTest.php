@@ -23,9 +23,9 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\SaveOrderBeforeDataBuilder;
 use Buckaroo\Magento2\Model\ConfigProvider\Account;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 
-class SaveOrderBeforeDataBuilderTest extends AbstractDataBuilderTest
+class SaveOrderBeforeDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var SaveOrderBeforeDataBuilder

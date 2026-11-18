@@ -89,7 +89,6 @@ class ShippingCostsStoreContextTest extends TestCase
         );
 
         $method = new \ReflectionMethod($handler, 'getShippingCostsLine');
-        $method->setAccessible(true);
         $itemsTotalAmount = 0;
         $result = $method->invokeArgs($handler, [$orderMock, &$itemsTotalAmount, false]);
 

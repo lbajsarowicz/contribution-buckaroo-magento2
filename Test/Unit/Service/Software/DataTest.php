@@ -74,6 +74,7 @@ class DataTest extends BaseTest
      * @param $module
      * @param $expected
      *
+     * @dataProvider getProvider
      */
     #[DataProvider('getProvider')]
     public function testGet($name, $edition, $version, $module, $expected)

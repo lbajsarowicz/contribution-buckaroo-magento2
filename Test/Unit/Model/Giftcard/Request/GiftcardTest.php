@@ -39,6 +39,9 @@ class GiftcardTest extends \Buckaroo\Magento2\Test\BaseTest
 {
     protected $instanceClass = Giftcard::class;
 
+    /**
+     * @dataProvider cardProvider
+     */
     #[DataProvider('cardProvider')]
     public function testOnlyAnAllowedGiftcardIsSent(string $cardId, bool $isSent): void
     {

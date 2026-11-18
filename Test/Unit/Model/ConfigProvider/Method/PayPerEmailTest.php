@@ -102,6 +102,7 @@ class PayPerEmailTest extends BaseTest
      * @param $fee
      * @param $expected
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($fee, $expected)
@@ -141,6 +142,7 @@ class PayPerEmailTest extends BaseTest
      * @param $option
      * @param $expected
      *
+     * @dataProvider getSendMailProvider
      */
     #[DataProvider('getSendMailProvider')]
     public function testHasSendMail($option, $expected)
@@ -212,6 +214,7 @@ class PayPerEmailTest extends BaseTest
      * @param $areaCode
      * @param $expected
      *
+     * @dataProvider isVisibleForAreaCodeProvider
      */
     #[DataProvider('isVisibleForAreaCodeProvider')]
     public function testIsVisibleForAreaCode($visibleFrontBack, $areaCode, $expected)

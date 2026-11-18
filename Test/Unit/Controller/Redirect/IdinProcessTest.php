@@ -85,6 +85,7 @@ class IdinProcessTest extends BaseTest
      *
      * @param string|null $sessionNonce
      * @param string|null $requestNonce
+     * @dataProvider foreignResultProvider
      */
     #[DataProvider('foreignResultProvider')]
     public function testAResultThatThisSessionDidNotStartIsRejected(?string $sessionNonce, ?string $requestNonce): void
@@ -120,6 +121,7 @@ class IdinProcessTest extends BaseTest
     /**
      * @param string|null $signedCustomerId
      * @param int|null    $sessionCustomerId
+     * @dataProvider otherAccountProvider
      */
     #[DataProvider('otherAccountProvider')]
     public function testAResultIsNeverStoredOnAnotherAccount(?string $signedCustomerId, ?int $sessionCustomerId): void

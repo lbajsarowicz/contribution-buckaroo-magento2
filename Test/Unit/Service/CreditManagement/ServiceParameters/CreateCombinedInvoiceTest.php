@@ -148,6 +148,7 @@ class CreateCombinedInvoiceTest extends BaseTest
      * @param $address
      * @param $expected
      *
+     * @dataProvider getCmAddressProvider
      */
     #[DataProvider('getCmAddressProvider')]
     public function testGetCmAddress($address, $expected)

@@ -44,6 +44,9 @@ class DebtorCultureResolverTest extends TestCase
         $this->resolver = new CultureCodeResolver();
     }
 
+    /**
+     * @dataProvider debtorCultureProvider
+     */
     #[DataProvider('debtorCultureProvider')]
     public function testResolvesDebtorCulture(?string $country, ?string $hint, string $expected): void
     {

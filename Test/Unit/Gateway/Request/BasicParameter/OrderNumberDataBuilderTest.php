@@ -23,11 +23,11 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 
 use Buckaroo\Magento2\Gateway\Data\Order\OrderAdapter;
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\OrderNumberDataBuilder;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Sales\Model\Order;
 
-class OrderNumberDataBuilderTest extends AbstractDataBuilderTest
+class OrderNumberDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var OrderNumberDataBuilder

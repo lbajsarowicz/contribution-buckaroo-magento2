@@ -73,8 +73,8 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
         $this->request = $this->getFakeMock(RequestInterface::class)->getMock();
         $this->messageManager = $this->getFakeMock(ManagerInterface::class)->getMock();
 
-        $this->context->expects($this->any())->method('getRequest')->willReturn($this->request);
-        $this->context->expects($this->any())->method('getMessageManager')->willReturn($this->messageManager);
+        $this->context->method('getRequest')->willReturn($this->request);
+        $this->context->method('getMessageManager')->willReturn($this->messageManager);
     }
 
     private function buildInstance(array $mockMethods = []): SecondChance
@@ -274,6 +274,7 @@ class SecondChanceTest extends \Buckaroo\Magento2\Test\BaseTest
 
     /**
      * @param mixed $token
+     * @dataProvider malformedTokenProvider
      */
     #[DataProvider('malformedTokenProvider')]
     public function testExecuteRejectsMalformedTokenBeforeAnyLookup($token)

@@ -47,6 +47,7 @@ class ClampCreditmemoShippingToInvoiceTest extends \Buckaroo\Magento2\Test\BaseT
      * @param float $memoShipping
      * @param float $invoiceShipping
      * @param float $expected
+     * @dataProvider shippingProvider
      */
     #[DataProvider('shippingProvider')]
     public function testTheMemoNeverRefundsShippingItsInvoiceDidNotCharge(
@@ -127,6 +128,7 @@ class ClampCreditmemoShippingToInvoiceTest extends \Buckaroo\Magento2\Test\BaseT
      * @param float $invoiceNet
      * @param float $invoiceGross
      * @param float $expected
+     * @dataProvider requestedShippingProvider
      */
     #[DataProvider('requestedShippingProvider')]
     public function testTheRequestedShippingIsBoundedInTheUnitCoreReadsItIn(
@@ -166,6 +168,7 @@ class ClampCreditmemoShippingToInvoiceTest extends \Buckaroo\Magento2\Test\BaseT
      * @param float $expectedNet
      * @param float $expectedGross
      * @throws LocalizedException
+     * @dataProvider refundedShippingProvider
      */
     #[DataProvider('refundedShippingProvider')]
     public function testCoreRefundsTheShippingTheInvoiceCharged(
@@ -198,6 +201,7 @@ class ClampCreditmemoShippingToInvoiceTest extends \Buckaroo\Magento2\Test\BaseT
     /**
      * A later invoice of a per-shipment order charged no shipping; core must refund none of it in
      * either display mode, although CreditmemoFactory seeds the including-tax request from the order.
+     * @dataProvider displayModeProvider
      */
     #[DataProvider('displayModeProvider')]
     public function testCoreRefundsNoShippingOnAnInvoiceThatChargedNone(bool $displayInclTax): void

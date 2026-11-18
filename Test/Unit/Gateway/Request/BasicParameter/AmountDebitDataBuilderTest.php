@@ -25,9 +25,9 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Buckaroo\Magento2\Gateway\Request\Articles\ArticleTotalRegistry;
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\AmountDebitDataBuilder;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 
-class AmountDebitDataBuilderTest extends AbstractDataBuilderTest
+class AmountDebitDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var AmountDebitDataBuilder
@@ -56,6 +56,7 @@ class AmountDebitDataBuilderTest extends AbstractDataBuilderTest
      * @param float      $expectedAmount
      *
      * @throws \Exception
+     * @dataProvider amountDataProvider
      */
     #[DataProvider('amountDataProvider')]
     public function testBuild(?float $grandTotal, float $expectedAmount)

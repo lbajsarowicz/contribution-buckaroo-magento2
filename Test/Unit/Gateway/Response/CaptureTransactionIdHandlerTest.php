@@ -29,11 +29,12 @@ use PHPUnit\Framework\Attributes\DataProvider;
  * (Payment::canCapture()), so a partial capture must leave it open. Otherwise the next shipment
  * registers an invoice that is never paid and never reaches Buckaroo.
  */
-class CaptureTransactionIdHandlerTest extends AbstractResponseHandlerTest
+class CaptureTransactionIdHandlerTest extends AbstractResponseHandlerTestCase
 {
     /**
      * @param bool $canInvoice        Whether the order still has lines to invoice.
      * @param bool $expectParentClose
+     * @dataProvider captureProvider
      */
     #[DataProvider('captureProvider')]
     public function testTheAuthorizationIsOnlyClosedOnTheFinalCapture(

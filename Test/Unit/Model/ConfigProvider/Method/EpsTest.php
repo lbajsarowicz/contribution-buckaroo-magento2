@@ -61,6 +61,7 @@ class EpsTest extends BaseTest
      * @param bool  $active
      * @param array $expected
      *
+     * @dataProvider getConfigProvider
      */
     #[DataProvider('getConfigProvider')]
     public function testGetConfig($active, $expected): void
@@ -145,6 +146,7 @@ class EpsTest extends BaseTest
      * @param mixed $value
      * @param mixed $expected
      *
+     * @dataProvider getPaymentFeeProvider
      */
     #[DataProvider('getPaymentFeeProvider')]
     public function testGetPaymentFee($value, $expected): void

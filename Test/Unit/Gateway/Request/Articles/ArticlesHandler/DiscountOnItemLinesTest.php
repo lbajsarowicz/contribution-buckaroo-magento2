@@ -50,6 +50,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $qty
      * @param bool  $pricesIncludeTax
      * @param float $expected
+     * @dataProvider unitDiscountProvider
      */
     #[DataProvider('unitDiscountProvider')]
     public function testTheUnitDiscountIsThePerUnitShareOfTheItemDiscount(
@@ -146,6 +147,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $compensation
      * @param bool  $shippingIncludesTax
      * @param float $expected
+     * @dataProvider shippingDiscountProvider
      */
     #[DataProvider('shippingDiscountProvider')]
     public function testTheShippingDiscountRidesOnTheShippingLine(
@@ -177,6 +179,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $shippingTaxAmount
      * @param float $shippingDiscount
      * @param float $expected
+     * @dataProvider discountedShippingProvider
      */
     #[DataProvider('discountedShippingProvider')]
     public function testTheShippingLineIsGrossOfTaxAndNetOfItsDiscount(
@@ -232,6 +235,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param array $itemDiscounts
      * @param float $shippingDiscount
      * @param float $expected
+     * @dataProvider globalDiscountProvider
      */
     #[DataProvider('globalDiscountProvider')]
     public function testTheGlobalLineOnlyCarriesWhatNoLineCouldAbsorb(
@@ -397,6 +401,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      *
      * @param string $dataKey
      * @param int    $identifier
+     * @dataProvider settledOutsideTheGatewayProvider
      */
     #[DataProvider('settledOutsideTheGatewayProvider')]
     public function testAnAmountSettledOutsideTheGatewayGetsItsOwnLine(string $dataKey, int $identifier): void
@@ -604,6 +609,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $target
      * @param bool  $mayFold
      * @param int   $expectedLines
+     * @dataProvider residualProvider
      */
     #[DataProvider('residualProvider')]
     public function testAResidualNeverSplitsALine(float $target, bool $mayFold, int $expectedLines): void
@@ -642,6 +648,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * method: the merchant's own records would no longer match what the shopper is shown.
      *
      * @param string $handlerClass
+     * @dataProvider reserveHandlerProvider
      */
     #[DataProvider('reserveHandlerProvider')]
     public function testARealLinePriceIsNeverRewritten(string $handlerClass): void
@@ -702,6 +709,7 @@ class DiscountOnItemLinesTest extends \Buckaroo\Magento2\Test\BaseTest
      * separate discount article.
      *
      * @param string $handlerClass
+     * @dataProvider reserveHandlerProvider
      */
     #[DataProvider('reserveHandlerProvider')]
     public function testTheReserveEmitsOneNettedLinePerItem(string $handlerClass): void

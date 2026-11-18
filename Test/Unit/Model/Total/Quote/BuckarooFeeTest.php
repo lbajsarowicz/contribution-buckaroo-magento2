@@ -148,6 +148,7 @@ class BuckarooFeeTest extends \Buckaroo\Magento2\Test\BaseTest
 
     /**
      * @param float|null $amount Calculated fee amount, null when Calculate returns no result at all.
+     * @dataProvider nonChargeableFeeResultProvider
      */
     #[DataProvider('nonChargeableFeeResultProvider')]
     public function testCollectDoesNotChargeFeeWhenCalculateReturnsNoUsableFee($amount)
@@ -219,6 +220,7 @@ class BuckarooFeeTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $convertedFee
      * @param float $initialGrandTotal
      * @param float $initialBaseGrandTotal
+     * @dataProvider collectFeeDataProvider
      */
     #[DataProvider('collectFeeDataProvider')]
     public function testCollectWritesConvertedFeeAndRaisesGrandTotals(

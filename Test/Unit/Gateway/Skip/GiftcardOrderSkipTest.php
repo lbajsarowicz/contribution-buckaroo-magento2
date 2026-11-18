@@ -47,6 +47,7 @@ class GiftcardOrderSkipTest extends TestCase
     /**
      * @dataProvider amountProvider
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('amountProvider')]
     public function testSkipsOnlyWhenThePaidAmountCoversTheOrder(
         float $alreadyPaid,
         float $grandTotal,

@@ -124,6 +124,9 @@ class TotalBreakdownTest extends BaseTest
     // getItemTotal() correctness
     // -------------------------------------------------------------------------
 
+    /**
+     * @dataProvider breakdownProvider
+     */
     #[DataProvider('breakdownProvider')]
     public function testGetItemTotalReturnsGrandTotalMinusShippingMinusTax(
         float $grandTotal,
@@ -153,6 +156,9 @@ class TotalBreakdownTest extends BaseTest
     // Invariant: item_total + shipping + tax_total == grand_total (no off-by-1c)
     // -------------------------------------------------------------------------
 
+    /**
+     * @dataProvider breakdownProvider
+     */
     #[DataProvider('breakdownProvider')]
     public function testBreakdownComponentsSumExactlyToGrandTotal(
         float $grandTotal,

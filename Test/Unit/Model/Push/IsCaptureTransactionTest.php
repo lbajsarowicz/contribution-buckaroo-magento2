@@ -134,6 +134,9 @@ class IsCaptureTransactionTest extends \Buckaroo\Magento2\Test\BaseTest
         ];
     }
 
+    /**
+     * @dataProvider pushProvider
+     */
     #[DataProvider('pushProvider')]
     public function testIsCaptureTransaction(array $push, bool $expected): void
     {

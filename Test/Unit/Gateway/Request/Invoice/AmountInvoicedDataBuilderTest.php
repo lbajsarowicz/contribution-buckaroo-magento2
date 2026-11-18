@@ -24,7 +24,7 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\Invoice;
 use Buckaroo\Magento2\Gateway\Request\Articles\ArticleTotalRegistry;
 use Buckaroo\Magento2\Gateway\Request\Invoice\AmountInvoicedDataBuilder;
 use Buckaroo\Magento2\Helper\Data as BuckarooHelper;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Sales\Model\Order\Invoice;
 use Magento\Sales\Model\ResourceModel\Order\Invoice\Collection as InvoiceCollection;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -42,7 +42,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
  * the order grand total; capturing that is refused with CAPTURE_NOT_ALLOWED and the
  * reservation expires uncaptured. Hence the cap at the remaining authorized amount.
  */
-class AmountInvoicedDataBuilderTest extends AbstractDataBuilderTest
+class AmountInvoicedDataBuilderTest extends AbstractDataBuilderTestCase
 {
     private const INCREMENT_ID = '000000163';
 
@@ -85,6 +85,7 @@ class AmountInvoicedDataBuilderTest extends AbstractDataBuilderTest
      * @param float      $expectedAmount
      *
      * @throws \Exception
+     * @dataProvider captureAmountDataProvider
      */
     #[DataProvider('captureAmountDataProvider')]
     public function testCaptureAmountFollowsTheArticleLinesAndNeverExceedsTheAuthorizedAmount(

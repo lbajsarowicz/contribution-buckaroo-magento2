@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Base test class for command-based request tests
  */
-abstract class AbstractCommandBasedTest extends TestCase
+abstract class AbstractCommandBasedTestCase extends TestCase
 {
     /**
      * @var MockObject|StoreManagerInterface
@@ -99,7 +99,7 @@ abstract class AbstractCommandBasedTest extends TestCase
      * @param string $commandKey
      * @param float  $grandTotal
      */
-    // AbstractCommandBasedTest.php
+    // AbstractCommandBasedTestCase.php
     protected function setupSuccessfulCommandExecution(string $commandKey, float $grandTotal = 100.0): void
     {
         $this->quoteMock->method('getGrandTotal')->willReturn($grandTotal);

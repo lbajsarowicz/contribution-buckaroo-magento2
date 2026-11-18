@@ -39,6 +39,7 @@ class AllowedCreditcardTypeValidatorTest extends \Buckaroo\Magento2\Test\BaseTes
      * @param mixed       $cardType
      * @param string|null $allowed
      * @param bool        $isValid
+     * @dataProvider cardTypeProvider
      */
     #[DataProvider('cardTypeProvider')]
     public function testOnlyAnAllowedCardBrandIsAccepted($cardType, ?string $allowed, bool $isValid): void

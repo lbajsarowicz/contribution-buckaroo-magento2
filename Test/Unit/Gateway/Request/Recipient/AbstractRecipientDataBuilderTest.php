@@ -26,14 +26,14 @@ use Buckaroo\Magento2\Gateway\Data\Order\OrderAdapter;
 use Buckaroo\Magento2\Gateway\Request\Recipient\AbstractRecipientDataBuilder;
 use Buckaroo\Magento2\Logging\BuckarooLoggerInterface;
 use Buckaroo\Magento2\Service\Formatter\BirthDateFormatter;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Model\InfoInterface;
 use Magento\Sales\Model\Order\Address;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class AbstractRecipientDataBuilderTest extends AbstractDataBuilderTest
+class AbstractRecipientDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var AbstractRecipientDataBuilder
@@ -74,6 +74,7 @@ class AbstractRecipientDataBuilderTest extends AbstractDataBuilderTest
      *
      * @param string|null $customerDoB
      * @param string|null $orderDob
+     * @dataProvider unusableBirthDateProvider
      */
     #[DataProvider('unusableBirthDateProvider')]
     public function testBuildFallsBackToThePlaceholderInsteadOfThrowing(
@@ -112,6 +113,7 @@ class AbstractRecipientDataBuilderTest extends AbstractDataBuilderTest
      * the checkout accepts.
      *
      * @param string $customerDoB
+     * @dataProvider usableBirthDateProvider
      */
     #[DataProvider('usableBirthDateProvider')]
     public function testBuildKeepsAUsableBirthDate(string $customerDoB): void

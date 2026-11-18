@@ -137,6 +137,9 @@ class PaypalProcessorTest extends \Buckaroo\Magento2\Test\BaseTest
         ];
     }
 
+    /**
+     * @dataProvider sellersProtectionNotAppliedProvider
+     */
     #[DataProvider('sellersProtectionNotAppliedProvider')]
     public function testGetNewStatusKeepsFactoryStatusWhenSellersProtectionDoesNotApply(
         bool $sellersProtection,

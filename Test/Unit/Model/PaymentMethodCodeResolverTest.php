@@ -135,6 +135,7 @@ class PaymentMethodCodeResolverTest extends \Buckaroo\Magento2\Test\BaseTest
     /**
      * @param string      $serviceCode
      * @param string|null $expected
+     * @dataProvider serviceCodeProvider
      */
     #[DataProvider('serviceCodeProvider')]
     public function testServiceCodesResolveToTheMethodThatHandlesThem(string $serviceCode, ?string $expected): void

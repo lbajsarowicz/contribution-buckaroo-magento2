@@ -10,6 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 class GatewayFailureDescriptionTest extends TestCase
 {
+    /**
+     * @dataProvider uninformativeDescriptionProvider
+     */
     #[DataProvider('uninformativeDescriptionProvider')]
     public function testRecognisesDescriptionsWithoutAReason(string $description): void
     {
@@ -33,6 +36,9 @@ class GatewayFailureDescriptionTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider informativeDescriptionProvider
+     */
     #[DataProvider('informativeDescriptionProvider')]
     public function testKeepsDescriptionsThatCarryAReason(string $description): void
     {

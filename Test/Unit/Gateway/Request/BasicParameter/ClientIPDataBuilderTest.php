@@ -25,7 +25,7 @@ namespace Buckaroo\Magento2\Test\Unit\Gateway\Request\BasicParameter;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Buckaroo\Magento2\Gateway\Request\BasicParameter\ClientIPDataBuilder;
 use Buckaroo\Magento2\Model\ConfigProvider\Account;
-use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTest;
+use Buckaroo\Magento2\Test\Unit\Gateway\Request\AbstractDataBuilderTestCase;
 use Buckaroo\Resources\Constants\IPProtocolVersion;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\HTTP\PhpEnvironment\RemoteAddress;
@@ -34,7 +34,7 @@ use Magento\Sales\Model\Order;
 use Magento\Store\Model\Store;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class ClientIPDataBuilderTest extends AbstractDataBuilderTest
+class ClientIPDataBuilderTest extends AbstractDataBuilderTestCase
 {
     /**
      * @var MockObject|Account
@@ -69,6 +69,7 @@ class ClientIPDataBuilderTest extends AbstractDataBuilderTest
      *
      * @param string $expectedAddress
      * @param int    $expectedType
+     * @dataProvider getBuildDataProvider
      */
     #[DataProvider('getBuildDataProvider')]
     public function testBuild(string $expectedAddress, int $expectedType): void
@@ -129,6 +130,7 @@ class ClientIPDataBuilderTest extends AbstractDataBuilderTest
      *
      * @param string $ip
      * @param bool   $expectedResult
+     * @dataProvider isIpPrivateDataProvider
      */
     #[DataProvider('isIpPrivateDataProvider')]
     public function testIsIpPrivate(string $ip, bool $expectedResult): void

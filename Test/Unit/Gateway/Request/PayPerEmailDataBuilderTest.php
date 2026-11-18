@@ -30,7 +30,7 @@ use Magento\Payment\Model\InfoInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 
-class PayPerEmailDataBuilderTest extends AbstractDataBuilderTest
+class PayPerEmailDataBuilderTest extends AbstractDataBuilderTestCase
 {
     private const STORE_ID = 3;
 
@@ -68,6 +68,7 @@ class PayPerEmailDataBuilderTest extends AbstractDataBuilderTest
      *
      * @param bool $hasSendMail
      * @param bool $expectedMerchantSendsEmail
+     * @dataProvider sendMailDataProvider
      */
     #[DataProvider('sendMailDataProvider')]
     public function testMerchantSendsEmailIsTheInverseOfSendMail(

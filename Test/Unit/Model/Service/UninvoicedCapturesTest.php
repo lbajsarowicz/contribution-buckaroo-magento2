@@ -111,6 +111,7 @@ class UninvoicedCapturesTest extends \Buckaroo\Magento2\Test\BaseTest
      * @param float $paymentAmountPaid
      * @param float $orderTotalPaid
      * @param float $expected
+     * @dataProvider legacyProvider
      */
     #[DataProvider('legacyProvider')]
     public function testACaptureRecordedByAnOlderVersionIsPickedUp(

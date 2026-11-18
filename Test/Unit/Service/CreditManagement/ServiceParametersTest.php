@@ -124,6 +124,7 @@ class ServiceParametersTest extends BaseTest
      * @param $filter
      * @param $expected
      *
+     * @dataProvider serviceParametersGetProvider
      */
     #[DataProvider('serviceParametersGetProvider')]
     public function testGetCreateCombinedInvoice($requestParameters, $filter, $expected)
@@ -148,6 +149,7 @@ class ServiceParametersTest extends BaseTest
      * @param $filter
      * @param $expected
      *
+     * @dataProvider serviceParametersGetProvider
      */
     #[DataProvider('serviceParametersGetProvider')]
     public function testGetCreateCreditNote($requestParameters, $filter, $expected)
